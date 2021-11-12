@@ -1,4 +1,5 @@
 library bootstrap_flutter;
 
-export 'src/controller_web.dart';
-export 'src/scaffold_web.dart';
+export 'src/controller_bootstrap.dart';
+export 'src/scaffold_bootstrap.dart';
+export 'src/models/model.dart';
