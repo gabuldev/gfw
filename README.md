@@ -1,39 +1,50 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Intro
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+Package criado para facilitar o uso do Flutter em multiplos tamanhos de telas. Com esse package você vai conseguir fazer que o mesmo layout tenha comportamentos diferentes para dispositivos, mobile, tablet, web e desktop.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+![enter image description here](https://media.giphy.com/media/C1gGS7DYyB9N8x4XEV/giphy.gif)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Conceitos
 
-## Features
+Utilizamos da padronização do bootstrap para fazer a arranjo das telas de forma simples através de uma simples string;
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+| Size      | Type    | Tag | Column | Divisions |
+| --------- | ------- | --- | ------ | --------- |
+| <768px    | Mobile  | xs- | auto   | 12        |
+| >= 768px  | Tablet  | sm- | ~62px  | 12        |
+| >= 992px  | Web     | md- | ~81px  | 12        |
+| >= 1200px | Desktop | lg- | ~97px  | 12        |
 
-## Getting started
+# Utilização
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Para utilizar o **bootstrap** em sua página basta usar nosso widget **ScaffoldBootstrap** como pai dos widgets de sua tela.
 
 ```dart
-const like = 'sample';
+return ScaffoldBootstrap(children: <Component>[]);
 ```
 
-## Additional information
+Precisamos agora criar os components responsivos e seus respectivos comportamentos
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```dart
+return ScaffoldBootstrap(children: [
+  Component(style: "lg-4 md-4 sm-4 xs-4 xs:h\4", child: YourWidget())
+]);
+```
+
+Nesse exemplo acima estamos dizendo que queremos usar 4 partes das 12 disponíveis na tela para todos os tipos de tela, mas quando for uma tela xs queremos que ocupe 1/4 da altura da tela ( deixando o widget menor quando está na tela de um dispositivo mobile por exemplo).
+
+- Você pode definir a altura máxima para todos os tipos de tela, para isso basta definir qual tela quer adicionar essa propriedade e depois adicionar os dois pontos.
+
+```dart
+xs:h/4
+xs:h*2
+md: h*3
+```
+
+# Importante
+
+Esse package está na sua primeira versão, então pedimos para todas as issues reportagem o mais rápido possível ou subir uma correção para deixarmos o mais alinhado e utilizável possível.
+
+# Agradecimento
+
+Package desenvolvimento por Gabul Dev, qualquer coisa só chamar nas redes sociais para tirar dúvidas

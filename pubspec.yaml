@@ -1,6 +1,6 @@
 name: bootstrap_flutter
-description: A new Flutter package project.
-version: 0.0.1
+description: Aplicação de responsividade do bootstrap para facilitar a criação de multiplos tamanhos de telas em seus projetos
+version: 1.0.0
 homepage:
 
 environment:
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  golden_toolkit: ^0.11.0
 
 dev_dependencies:
   flutter_test:
